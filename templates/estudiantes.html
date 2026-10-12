@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('inicio') }}">Inicio</a>
+        <a href="{{ url_for('estudiantes') }}" class="activo">Estudiantes</a>
+        <a href="{{ url_for('contacto') }}">Contacto</a>
+    </nav>
+
+    <main>
+        <h1>Lista de estudiantes</h1>
+
+        {% if estudiantes %}
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Carrera</th>
+                    <th>Semestre</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.carrera }}</td>
+                    <td>{{ estudiante.semestre }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No hay estudiantes registrados.</p>
+        {% endif %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
