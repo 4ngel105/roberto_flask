@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('inicio') }}" class="activo">Inicio</a>
+        <a href="{{ url_for('estudiantes') }}">Estudiantes</a>
+        <a href="{{ url_for('contacto') }}">Contacto</a>
+    </nav>
+
+    <main>
+        <h1>Bienvenido a Flask</h1>
+        <p>Esta es una aplicación de ejemplo construida con Flask y plantillas Jinja2.</p>
+        <p>Usa el menú para ver la lista de estudiantes o enviarnos un mensaje.</p>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
